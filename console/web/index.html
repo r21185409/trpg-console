@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <title>TRPG 控制台</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <h1>TRPG 控制台</h1>
+    <span id="status" class="badge">連線中…</span>
+    <span class="grow"></span>
+    <button id="reset-session" class="btn-ghost" title="清掉目前的對話階段，開始新的">重置 Session</button>
+  </header>
+
+  <main>
+    <aside id="sidebar">
+      <h2>戰役</h2>
+      <ul id="campaign-list"><li class="muted">載入中…</li></ul>
+    </aside>
+
+    <section id="main-panel">
+      <div id="chat-log" class="chat-log">
+        <div class="msg system">
+          <div class="bubble">
+            歡迎，DM。輸入訊息開始 — 例如：<code>/dnd</code> 開啟選單，或直接「開一個黑暗奇幻戰役」之類自由描述。
+          </div>
+        </div>
+      </div>
+
+      <form id="chat-form" class="chat-form">
+        <textarea id="chat-input" placeholder="輸入指令或對 DM 說話… (Enter 送出，Shift+Enter 換行)" rows="3"></textarea>
+        <button type="submit" id="send-btn">送出</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="/static/marked.min.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>

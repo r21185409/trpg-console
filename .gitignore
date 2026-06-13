@@ -1,0 +1,19 @@
+# Upstream skill — has its own git repo, tracked separately
+base/
+
+# Per-machine / per-session state
+campaigns/_session.json
+campaigns/_session.id
+.claude/settings.local.json
+
+# Python
+console/.venv/
+**/__pycache__/
+*.pyc
+*.pyo
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
