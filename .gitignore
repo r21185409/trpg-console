@@ -1,9 +1,10 @@
 # Upstream skill — has its own git repo, tracked separately
 base/
 
-# Per-machine / per-session state
-campaigns/_session.json
-campaigns/_session.id
+# Campaign data — kept local only, user backs up separately
+campaigns/
+
+# Per-machine state
 .claude/settings.local.json
 
 # Python

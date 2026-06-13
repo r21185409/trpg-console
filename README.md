@@ -70,4 +70,6 @@ New-Item -ItemType Junction -Path .claude\skills\dnd -Target D:\TRPG\base\skills
 .\console\run.ps1
 ```
 
-瀏覽器開 <http://127.0.0.1:8765>，戰役資料會直接從 `campaigns/` 載入。
+瀏覽器開 <http://127.0.0.1:8765>。
+
+**戰役資料不在 git** — 從你自己的備份還原到 `D:\TRPG\campaigns\`。
