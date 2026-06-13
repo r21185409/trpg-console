@@ -44,3 +44,30 @@ D:\TRPG\console\run.ps1
 - Node.js 18+
 - Claude Code CLI（`npm i -g @anthropic-ai/claude-code`）
 - 已登入的 Anthropic 帳號
+
+## 換機器 / 災難復原
+
+```powershell
+# 1. clone 本 repo
+gh repo clone r21185409/trpg-console D:\TRPG
+cd D:\TRPG
+
+# 2. clone 上游 skill（base/ 不在本 repo 內）
+git clone https://github.com/neuralinitiative/claude-dnd-skill.git base
+
+# 3. 重建 skill junction（讓 Claude Code 找得到 dnd skill）
+New-Item -ItemType Junction -Path .claude\skills\dnd -Target D:\TRPG\base\skills\dnd
+
+# 4. 建立 .claude\settings.local.json
+@'
+{
+  "env": { "DND_CAMPAIGN_ROOT": "D:\\TRPG\\campaigns" },
+  "permissions": { "defaultMode": "bypassPermissions" }
+}
+'@ | Set-Content -Encoding UTF8 .claude\settings.local.json
+
+# 5. 啟動（首次會自動建 venv 安裝依賴）
+.\console\run.ps1
+```
+
+瀏覽器開 <http://127.0.0.1:8765>，戰役資料會直接從 `campaigns/` 載入。
